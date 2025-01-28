@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template
 import requests
 import os
 
@@ -15,7 +15,7 @@ def home():
         response.raise_for_status()  # Raise an error for bad HTTP responses
         messages = response.json()  # Parse the JSON response
     except requests.exceptions.RequestException as e:
-        return f"Error fetching data from processor app: {e}", 500
+        return f"<h1>Error fetching data from processor app:</h1><p>{e}</p>", 500
 
     # Render the data in an HTML table
     return render_template('table.html', messages=messages)
