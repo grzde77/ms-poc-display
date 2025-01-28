@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages Table</title>
+    <style>
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Messages Table</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Message JSON</th>
+                <th>Message SOAP</th>
+                <th>Creation Date</th>
+                <th>Processing Duration (ms)</th>
+                <th>Status</th>
+                <th>Error Message</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for message in messages %}
+            <tr>
+                <td>{{ message.id }}</td>
+                <td>{{ message.message_json }}</td>
+                <td>{{ message.message_soap }}</td>
+                <td>{{ message.creation_datetime }}</td>
+                <td>{{ message.processing_duration_ms }}</td>
+                <td>{{ message.status }}</td>
+                <td>{{ message.error_message }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
