@@ -4,25 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Messages Table</title>
-    <style>
-        table {
-            width: 90%;
-            margin: 20px auto;
-            border-collapse: collapse;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f4f4f4;
-        }
-    </style>
 </head>
 <body>
-    <h1 style="text-align: center;">Messages Table</h1>
-    <table>
+    <h1>Messages Table</h1>
+    <table border="1">
         <thead>
             <tr>
                 <th>ID</th>
@@ -43,7 +28,7 @@
                 <td>{{ message.creation_datetime }}</td>
                 <td>{{ message.processing_duration_ms }}</td>
                 <td>{{ message.status }}</td>
-                <td>{{ message.error_message }}</td>
+                <td>{{ message.error_message or 'N/A' }}</td>
             </tr>
             {% endfor %}
         </tbody>
